@@ -1,0 +1,19 @@
+
+server:
+  port: 81
+spring:
+  application:
+    name: cloud-consumer-order
+  cloud:
+    consul:
+      host: 192.168.103.253
+      port: 8500
+      discovery:
+        register: false
+        service-name: ${spring.application.name}
+    loadbalancer:
+      ribbon:
+        enabled: true
+web:
+  swagger:
+    enabled: true
