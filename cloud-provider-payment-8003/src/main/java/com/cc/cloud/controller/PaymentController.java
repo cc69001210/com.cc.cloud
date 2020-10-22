@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * <p>
  *  前端控制器
@@ -45,6 +47,18 @@ public class PaymentController extends BaseController {
         }
         return this.success();
     }
+
+    @ApiOperation(value = "支付")
+    @RequestMapping(value = "timeout",method = RequestMethod.POST)
+    public ResultData timeout(@RequestBody Payment payment){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (Exception e) {
+
+        }
+        return this.success("8003","成功");
+    }
+
 
 }
 

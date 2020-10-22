@@ -13,13 +13,14 @@ spring:
   # consul的注册地址
   cloud:
     consul:
-      host: 192.168.103.253
+      host: 127.0.0.1
       port: 8500
       discovery:
         health-check-interval: 10s
         service-name: ${spring.application.name}
         heartbeat:
           enabled: true
+        instance-id: ${spring.application.name}-${127.0.0.1}-${server.port}
 
 mybatis:
   config-location: classpath:mapper/*.xml

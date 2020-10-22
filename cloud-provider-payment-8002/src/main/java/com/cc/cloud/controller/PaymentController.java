@@ -1,6 +1,7 @@
 package com.cc.cloud.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.cc.base.common.controller.BaseController;
 import com.cc.base.common.controller.ResultCodeEnum;
 import com.cc.base.common.controller.ResultData;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -36,15 +39,29 @@ public class PaymentController extends BaseController {
     @RequestMapping(value = "pay",method = RequestMethod.POST)
     @ApiOperation(value = "支付")
     public ResultData pay(@RequestBody Payment payment){
+        log.info("接收到的查询参数为：{}", JSON.toJSONString(payment));
         if (payment == null) {
             return this.failed(ResultCodeEnum.ERROR_BUSINESS_FAIL);
         }
         payment.setServicePort("8002");
+        log.info("修改后的查询参数为：{}", JSON.toJSONString(payment));
         boolean save = paymentService.save(payment);
         if (!save) {
             return this.failed(ResultCodeEnum.ERROR_BUSINESS_FAIL);
         }
         return this.success();
+    }
+
+
+    @ApiOperation(value = "支付")
+    @RequestMapping(value = "timeout",method = RequestMethod.POST)
+    public ResultData timeout(@RequestBody Payment payment){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (Exception e) {
+
+        }
+        return this.success("8002","成功");
     }
 
 }

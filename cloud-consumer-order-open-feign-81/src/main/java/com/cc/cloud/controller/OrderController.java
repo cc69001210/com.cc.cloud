@@ -28,13 +28,19 @@ public class OrderController extends BaseController {
     @Autowired
     private StoreClient storeClient;
 
-    @Resource
-    private RestTemplate restTemplate;
 
     @ApiOperation(value = "创建订单")
     @RequestMapping(value = "create",method = RequestMethod.POST)
     public ResultData createOrder(@RequestBody Payment payment) {
         ResultData resultData = storeClient.pay(payment);
+        return resultData;
+    }
+
+
+    @ApiOperation(value = "创建订单超时")
+    @RequestMapping(value = "payTimeout",method = RequestMethod.POST)
+    public ResultData payTimeout(@RequestBody Payment payment) {
+        ResultData resultData = storeClient.timeout(payment);
         return resultData;
     }
 }

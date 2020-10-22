@@ -1,19 +1,20 @@
-
 server:
   port: 81
+
 spring:
   application:
     name: cloud-consumer-order
   cloud:
     consul:
-      host: 192.168.103.253
+      host: 127.0.0.1
       port: 8500
       discovery:
-        register: false
+        register: true
         service-name: ${spring.application.name}
-    loadbalancer:
-      ribbon:
-        enabled: true
 web:
   swagger:
     enabled: true
+cloud-payment-service:
+  ribbon:
+    ReadTimeout: 10000
+    ConnectTimeout: 2000

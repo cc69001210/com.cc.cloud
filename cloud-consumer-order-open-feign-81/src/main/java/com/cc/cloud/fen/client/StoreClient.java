@@ -19,4 +19,6 @@ public interface StoreClient {
     @RequestMapping(value = "payment/pay",method = RequestMethod.POST)
     public ResultData pay(@RequestBody Payment payment);
 
+    @RequestMapping(value = "payment/timeout",method = RequestMethod.POST)
+    public ResultData timeout(@RequestBody Payment payment);
 }
