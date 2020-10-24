@@ -9,10 +9,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableFeignClients
 @EnableDiscoveryClient
+//@RibbonClient(name = "CLOUD_PAYMENT_SERVICE", configuration = RandomRule.class)
 public class OrderOpenFeignMain {
 
-	public static void main(String[] args) {
-		SpringApplication.run(OrderOpenFeignMain.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(OrderOpenFeignMain.class, args);
+    }
 
 }
