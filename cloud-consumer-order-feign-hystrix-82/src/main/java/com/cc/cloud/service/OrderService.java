@@ -1,8 +1,9 @@
 package com.cc.cloud.service;
 
-import io.swagger.annotations.ApiOperation;
+import com.cc.base.common.controller.ResultData;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author: cc
@@ -12,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(value = "cloud-provider-hystrix-payment")
 public interface OrderService {
 
-    @RequestMapping(value = "/ok",method = RequestMethod.POST)
-    public ResultData ok(Integer id);
+    @RequestMapping(value = "payment/ok",method = RequestMethod.POST)
+    ResultData ok(Integer id);
 
-    @RequestMapping(value = "/timeOut",method = RequestMethod.POST)
-    public ResultData timeOut(Integer id);
+    @RequestMapping(value = "payment`/timeOut",method = RequestMethod.POST)
+    ResultData timeOut(Integer id);
 }

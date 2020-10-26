@@ -1,0 +1,28 @@
+
+server:
+  port: 82
+
+spring:
+  application:
+    name: cloud-consumer-order-feign-hystrix
+  cloud:
+    consul:
+      host: 192.168.31.103
+      port: 8500
+      discovery:
+        register: true
+        service-name: ${spring.application.name}
+        heartbeat:
+          enabled: true
+web:
+  swagger:
+    enabled: true
+cloud-payment-service:
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 2000
+
+logging:
+  level:
+    com.cc.cloud.service.StoreClient: debug
