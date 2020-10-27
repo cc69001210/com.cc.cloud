@@ -16,6 +16,6 @@ public interface OrderService {
     @RequestMapping(value = "payment/ok",method = RequestMethod.POST)
     ResultData ok(Integer id);
 
-    @RequestMapping(value = "payment`/timeOut",method = RequestMethod.POST)
+    @RequestMapping(value = "payment/timeOut",method = RequestMethod.POST)
     ResultData timeOut(Integer id);
 }

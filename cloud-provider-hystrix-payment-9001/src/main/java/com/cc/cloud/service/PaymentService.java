@@ -14,4 +14,6 @@ public interface PaymentService extends BaseService<Payment> {
 
 
     void timeOut(Integer id);
+
+    void timeOutHandler(Integer id);
 }

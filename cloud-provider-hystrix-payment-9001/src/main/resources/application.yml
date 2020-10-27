@@ -15,7 +15,7 @@ spring:
   # consul的注册地址
   cloud:
     consul:
-      host: 192.168.31.103
+      host: 192.168.103.253
       port: 8500
       discovery:
         health-check-interval: 10s

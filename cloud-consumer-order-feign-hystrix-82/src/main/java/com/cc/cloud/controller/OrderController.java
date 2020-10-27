@@ -30,6 +30,6 @@ public class OrderController extends BaseController {
     @ApiOperation(value = "创建订单")
     @RequestMapping(value = "create",method = RequestMethod.POST)
     public ResultData createOrder(@RequestBody Payment payment) {
-        return orderService.ok(11);
+        return orderService.timeOut(11);
     }
 }
