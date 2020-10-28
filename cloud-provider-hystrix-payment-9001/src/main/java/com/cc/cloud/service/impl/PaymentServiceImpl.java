@@ -29,16 +29,14 @@ public class PaymentServiceImpl extends BaseServiceImpl<PaymentMapper,Payment> i
     })
     public void timeOut(Integer id) {
         int sleepSeconds = 10;
-//        try {
-//            TimeUnit.SECONDS.sleep(sleepSeconds);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        int a = 10/0;
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         log.info("线程：{}，执行方法：ok，获取的参数是：{} ，执行时间为： {} 秒",Thread.currentThread().getName(),id, sleepSeconds);
     }
 
-    @Override
     public void timeOutHandler(Integer id) {
         log.info("线程：{}，执行方法：ok，获取的参数是：{} ，执行的是： 服务降级方法。",Thread.currentThread().getName(),id);
     }
