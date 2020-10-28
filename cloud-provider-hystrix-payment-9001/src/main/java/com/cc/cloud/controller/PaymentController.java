@@ -30,7 +30,7 @@ public class PaymentController extends BaseController {
     @RequestMapping(value = "/ok",method = RequestMethod.POST)
     public ResultData ok(Integer id) {
         paymentService.ok(id);
-        return this.success();
+        return this.success("执行成功！");
     }
 
 
@@ -38,7 +38,7 @@ public class PaymentController extends BaseController {
     @RequestMapping(value = "/timeOut",method = RequestMethod.POST)
     public ResultData timeOut(Integer id) {
         paymentService.timeOut(id);
-        return this.success();
+        return this.success("执行成功");
     }
 
 

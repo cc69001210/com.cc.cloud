@@ -17,12 +17,17 @@ spring:
 web:
   swagger:
     enabled: true
-cloud-payment-service:
 
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 2000
 
+
 logging:
   level:
     com.cc.cloud.service.StoreClient: debug
+
+## 开启feign对 熔断的支持。
+feign:
+  hystrix:
+    enabled: true
