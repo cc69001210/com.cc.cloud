@@ -17,6 +17,7 @@
         <module>cloud-consumer-order-open-feign-81</module>
         <module>cloud-provider-hystrix-payment-9001</module>
         <module>cloud-consumer-order-feign-hystrix-82</module>
+        <module>cloud-hystrix-dashboard</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->

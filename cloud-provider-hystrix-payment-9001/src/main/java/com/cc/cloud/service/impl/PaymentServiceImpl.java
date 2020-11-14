@@ -48,7 +48,9 @@ public class PaymentServiceImpl extends BaseServiceImpl<PaymentMapper, Payment> 
     @HystrixCommand(fallbackMethod = "paymentCircuitBreakerFallback", commandProperties = {
             // 是否开启断路器。
             @HystrixProperty(name = "circuitBreaker.enable", value = "true"),
-            // 请求次数
+            // 请求次数, 也就是在触发熔断之前，必须保证 10s内发送有10个请求。
+            // 这里的10S指的是 circuitBreaker.sleepWindowInMilliseconds 的值。
+            // 这里的10个请求指的是 circuitBreaker.requestVolumeThreshold 的值。
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
             // 时间窗口期，默认为5S
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),
