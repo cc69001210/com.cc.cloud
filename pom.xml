@@ -13,11 +13,13 @@
         <module>cloud-provider-payment-8001</module>
         <module>cloud-provider-payment-8002</module>
         <module>cloud-provider-payment-8003</module>
-        <module>cloud-consumer-order-80</module>
+        <module>cloud-consumer-order-83</module>
         <module>cloud-consumer-order-open-feign-81</module>
         <module>cloud-provider-hystrix-payment-9001</module>
         <module>cloud-consumer-order-feign-hystrix-82</module>
         <module>cloud-hystrix-dashboard</module>
+        <module>cloud-gateway</module>
+        <module>cloud-api-commons</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->

@@ -1,0 +1,29 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-gateway
+  # consul\u7684\u6CE8\u518C\u5730\u5740
+  cloud:
+    consul:
+      host: 192.168.103.253
+      port: 8500
+      discovery:
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${127.0.0.1}-${server.port}
+        heartbeat:
+          enabled: true
+    gateway:
+      routes:
+      # 第二个路由
+      - id: payment-pay
+        uri: http://localhost:8001
+        predicates:
+        - Path=/payment/pay
+      # 第二个路由
+      - id: payment-timeout
+        uri: http://localhost:8001
+        predicates:
+        - Path=/payment/timeout

@@ -10,7 +10,7 @@
     <groupId>com.cc.cloud</groupId>
     <artifactId>cloud-consumer-order-80</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>cloud-consumer-order-80</name>
+    <name>cloud-consumer-order-83</name>
     <description>order part</description>
 
     <dependencies>

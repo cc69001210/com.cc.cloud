@@ -1,7 +1,7 @@
 package com.cc.cloud.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.cc.base.common.domain.BaseModel;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 import lombok.ToString;
 
@@ -16,7 +16,7 @@ import lombok.ToString;
 @TableName("payment")
 @Data
 @ToString
-public class Payment extends BaseModel<Payment> {
+public class Payment extends Model<Payment> {
 
 private static final long serialVersionUID=1L;
 
