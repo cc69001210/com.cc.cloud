@@ -6,6 +6,9 @@ spring:
     name: cloud-gateway
   # consul\u7684\u6CE8\u518C\u5730\u5740
   cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
     consul:
       host: 192.168.103.253
       port: 8500
@@ -16,14 +19,23 @@ spring:
         heartbeat:
           enabled: true
     gateway:
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态获取路由功能，默认是通过服务名进行获取
       routes:
       # 第二个路由
       - id: payment-pay
-        uri: http://localhost:8001
+        #        uri: http://localhost:8001
+        uri: lb://cloud-payment-service # 这里 lb开头是 loadBalance的意思。从服务名cloud-payment-service 中获取服务地址
         predicates:
         - Path=/payment/pay
       # 第二个路由
       - id: payment-timeout
-        uri: http://localhost:8001
+        uri: lb://cloud-payment-service
         predicates:
         - Path=/payment/timeout
+      # 第三个路由
+      - id: payment-test
+        uri: lb://cloud-payment-service
+        predicates:
+        - Path=/payment/test

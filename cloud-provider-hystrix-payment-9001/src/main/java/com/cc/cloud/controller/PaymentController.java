@@ -27,7 +27,7 @@ public class PaymentController extends BaseController {
     private PaymentService paymentService;
 
     @ApiOperation("支付ok")
-    @RequestMapping(value = "/ok",method = RequestMethod.POST)
+    @RequestMapping(value = "/ok", method = RequestMethod.POST)
     public ResultData ok(Integer id) {
         paymentService.ok(id);
         return this.success("执行成功！");
@@ -35,7 +35,7 @@ public class PaymentController extends BaseController {
 
 
     @ApiOperation(value = "支付超时")
-    @RequestMapping(value = "/timeOut",method = RequestMethod.POST)
+    @RequestMapping(value = "/timeOut", method = RequestMethod.POST)
     public ResultData timeOut(Integer id) {
         paymentService.timeOut(id);
         return this.success("执行成功");

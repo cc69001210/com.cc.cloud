@@ -5,7 +5,7 @@ import com.cc.cloud.domain.entity.Payment;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author cc

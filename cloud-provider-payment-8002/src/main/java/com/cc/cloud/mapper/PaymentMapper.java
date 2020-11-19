@@ -5,7 +5,7 @@ import com.cc.cloud.domain.entity.Payment;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author cc

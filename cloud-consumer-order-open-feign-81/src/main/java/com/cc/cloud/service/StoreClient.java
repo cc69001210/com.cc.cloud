@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(value = "cloud-payment-service")
 public interface StoreClient {
 
-    @RequestMapping(value = "payment/pay",method = RequestMethod.POST)
+    @RequestMapping(value = "payment/pay", method = RequestMethod.POST)
     public ResultData pay(@RequestBody Payment payment);
 
-    @RequestMapping(value = "payment/timeout",method = RequestMethod.POST)
+    @RequestMapping(value = "payment/timeout", method = RequestMethod.POST)
     public ResultData timeout(@RequestBody Payment payment);
 }

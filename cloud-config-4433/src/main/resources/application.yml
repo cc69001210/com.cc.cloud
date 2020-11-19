@@ -1,0 +1,28 @@
+server:
+  port: 4433
+spring:
+  application:
+    name: cloud-config-center
+
+  cloud:
+    # config-center
+    config:
+      server:
+        git:
+          uri: https://github.com/cc69001210/SpringCloud-Config.git
+          search-paths:
+            - SpringCloud-Config
+          default-label: main
+          username: cc69001210@126.com
+          password:
+    # consul
+    consul:
+      host: 192.168.103.253
+      port: 8500
+      discovery:
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${127.0.0.1}-${server.port}
+        heartbeat:
+          enabled: true
+

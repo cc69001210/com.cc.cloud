@@ -29,7 +29,7 @@ public class OrderController extends BaseController {
     private RestTemplate restTemplate;
 
     @ApiOperation(value = "创建订单")
-    @RequestMapping(value = "create",method = RequestMethod.POST)
+    @RequestMapping(value = "create", method = RequestMethod.POST)
     public ResultData createOrder(@RequestBody Payment payment) {
         ResultData resultData = restTemplate.postForObject(URL + "/payment/pay", payment, ResultData.class);
         return resultData;

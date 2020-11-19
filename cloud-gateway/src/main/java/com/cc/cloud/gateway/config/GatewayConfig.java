@@ -17,9 +17,10 @@ public class GatewayConfig {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("payment_pay", r -> r.path("/payment/pay/**").uri("http://localhost:8001"))
-                .route("payment_timeout", r -> r.path("/payment/timeout/**").uri("http://localhost:8001"))
+                .route("payment_pay", r -> r.path("/payment/pay").uri("http://localhost:8001"))
+                .route("payment_timeout", r -> r.path("/payment/timeout").uri("http://localhost:8001"))
+                .route("guonei", r -> r.path("/guonei").uri("http://news.baidu.com"))
+                .route("guoji", r -> r.path("/guoji").uri("http://news.baidu.com"))
                 .build();
     }
-
 }

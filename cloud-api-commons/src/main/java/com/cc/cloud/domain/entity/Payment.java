@@ -7,7 +7,7 @@ import lombok.ToString;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author cc
@@ -18,7 +18,7 @@ import lombok.ToString;
 @ToString
 public class Payment extends Model<Payment> {
 
-private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 支付流水号

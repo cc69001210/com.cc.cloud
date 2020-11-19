@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author cc
@@ -34,9 +34,9 @@ public class PaymentController extends BaseController {
     @Autowired
     private PaymentService paymentService;
 
-    @RequestMapping(value = "pay",method = RequestMethod.POST)
+    @RequestMapping(value = "pay", method = RequestMethod.POST)
     @ApiOperation(value = "支付")
-    public ResultData pay(@RequestBody Payment payment){
+    public ResultData pay(@RequestBody Payment payment) {
         if (payment == null) {
             return this.failed(ResultCodeEnum.ERROR_BUSINESS_FAIL);
         }
@@ -49,16 +49,22 @@ public class PaymentController extends BaseController {
     }
 
     @ApiOperation(value = "支付")
-    @RequestMapping(value = "timeout",method = RequestMethod.POST)
-    public ResultData timeout(@RequestBody Payment payment){
+    @RequestMapping(value = "timeout", method = RequestMethod.POST)
+    public ResultData timeout(@RequestBody Payment payment) {
         try {
             TimeUnit.SECONDS.sleep(3);
         } catch (Exception e) {
 
         }
-        return this.success("8003","成功");
+        return this.success("8003", "成功");
     }
 
+
+    @ApiOperation(value = "测试")
+    @RequestMapping(value = "test", method = RequestMethod.GET)
+    public String test() {
+        return " 请求接口端口： 8003 ";
+    }
 
 }
 

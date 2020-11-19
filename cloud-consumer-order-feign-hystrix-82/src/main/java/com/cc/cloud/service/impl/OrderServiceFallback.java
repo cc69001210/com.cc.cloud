@@ -21,12 +21,12 @@ public class OrderServiceFallback extends BaseController implements OrderService
     @Override
     public ResultData ok(Integer id) {
         log.warn("方法降级，方法的参数是：{}", id);
-        return this.failed(ResultCodeEnum.ERROR_SYSTEM_EXCEPTION,"方法降级。。。");
+        return this.failed(ResultCodeEnum.ERROR_SYSTEM_EXCEPTION, "方法降级。。。");
     }
 
     @Override
     public ResultData timeOut(Integer id) {
         log.warn("方法降级，方法的参数是：{}", id);
-        return this.failed(ResultCodeEnum.ERROR_SYSTEM_EXCEPTION,"方法降级。。。");
+        return this.failed(ResultCodeEnum.ERROR_SYSTEM_EXCEPTION, "方法降级。。。");
     }
 }
