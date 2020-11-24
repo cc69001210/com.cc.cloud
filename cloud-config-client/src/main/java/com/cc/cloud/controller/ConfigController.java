@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConfigController {
 
+    /**
+     * 如果提示失败，那么请检查： 配置文件中yml文件 冒号后面是否加了空格，如果没有加，就会报错。
+     */
     @Value("${config.version}")
     private String configVersion;
 
