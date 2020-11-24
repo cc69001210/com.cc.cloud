@@ -1,0 +1,26 @@
+server:
+  port: 4444
+spring:
+  application:
+    name: config-client
+
+  cloud:
+    # cloud的配置
+    config:
+      # 分支名
+      label: main
+      # name-profile 组成 配置文件名 config-dev.yml 就是去获取该文件
+      name: config
+      profile: dev
+      # 配置中心地址
+      uri: http://localhost:4433
+    consul:
+      #      host: 192.168.103.253
+      host: 192.168.31.103
+      port: 8500
+      discovery:
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${127.0.0.1}-${server.port}
+        heartbeat:
+          enabled: true

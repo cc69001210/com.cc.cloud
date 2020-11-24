@@ -9,15 +9,18 @@ spring:
     config:
       server:
         git:
+          # 这里如果配置的有ssl，那么可以使用git：xxx，下面就不用配置password了。、
+          # 这里使用的是HTTPS的协议，那么就需要配置用户名和密码（这里的密码就是上面生成的token）
           uri: https://github.com/cc69001210/SpringCloud-Config.git
           search-paths:
             - SpringCloud-Config
           default-label: main
           username: cc69001210@126.com
-          password:
-    # consul
+          password: 1f623292b154375539abc430ee5528bde59bbb58
+    # consul 注册中心
     consul:
-      host: 192.168.103.253
+#      host: 192.168.103.253
+      host: 192.168.31.103
       port: 8500
       discovery:
         health-check-interval: 10s
