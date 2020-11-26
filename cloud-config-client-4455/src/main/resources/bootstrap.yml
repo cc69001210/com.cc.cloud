@@ -1,11 +1,12 @@
 server:
-  port: 4444
+  port: 4455
+
 spring:
   application:
-    name: config-client
-
+    name: config-client-4455
+  # springcloud
   cloud:
-    # cloud的配置
+    # cloud的配置文件
     config:
       # 分支名
       label: main
@@ -16,8 +17,7 @@ spring:
       uri: http://127.0.0.1:4433
       fail-fast: true
     consul:
-      #      host: 192.168.103.253
-      host: 192.168.31.103
+      host: 192.168.103.253
       port: 8500
       discovery:
         health-check-interval: 10s
@@ -25,13 +25,11 @@ spring:
         instance-id: ${spring.application.name}-${127.0.0.1}-${server.port}
         heartbeat:
           enabled: true
-
   rabbitmq:
     host: 192.168.103.253
     port: 5672
     username: guest
     password: guest
-
 # 开启client的自动刷新监听,暴露监听端口
 management:
   endpoints:

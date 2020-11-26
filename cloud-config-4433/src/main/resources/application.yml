@@ -28,4 +28,16 @@ spring:
         instance-id: ${spring.application.name}-${127.0.0.1}-${server.port}
         heartbeat:
           enabled: true
+# rabbitmq
+  rabbitmq:
+    host: 192.168.103.253
+    port: 5672
+    username: guest
+    password: guest
 
+# 对外暴露的刷新
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
