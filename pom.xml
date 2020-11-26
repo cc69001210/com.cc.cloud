@@ -22,6 +22,8 @@
         <module>cloud-api-commons</module>
         <module>cloud-config-client</module>
         <module>cloud-config-client-4455</module>
+        <module>cloud-stream-rabbitmq-provider-9900</module>
+        <module>cloud-stream-rabbitmq-consumer-9901</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->

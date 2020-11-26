@@ -1,0 +1,39 @@
+server:
+  port: 9900
+
+spring:
+  application:
+    name: cloud-stream-provider
+  cloud:
+    stream:
+      # \u5B9A\u4E49\u7ED1\u5B9A\u5668
+      binders:
+        # \u4E0B\u9762\u4F7F\u7528\u7684 defaultRabbit \u5C31\u662F\u4F7F\u7528\u7684\u8FD9\u4E2A\u4E0B\u9762\u7684\u914D\u7F6E
+        defaultRabbit:
+          # \u6D88\u606F\u7EC4\u4EF6\u7C7B\u578B
+          type: rabbit
+          # \u6D88\u606F\u7EC4\u4EF6\u73AF\u5883
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.103.253
+                port: 5672
+                username: guest
+                password: guest
+      bindings: # \u670D\u52A1\u7684\u7EFC\u5408\u5904\u7406
+        output: # \u8FD9\u4E2A\u540D\u5B57\u662F\u4E00\u4E2A\u901A\u9053\u7684\u540D\u79F0
+          # \u8868\u793A\u8981\u4F7F\u7528\u7684Exchange\u7684\u540D\u79F0\uFF08\u4EA4\u6362\u673A\u7684\u540D\u79F0\uFF09
+          destination: streamExchange
+          #\u8BBE\u7F6E\u6D88\u606F\u7C7B\u578B\uFF0C\u672C\u6B21\u4E3Ajson\uFF0C\u6587\u672C\u5219\u8BBE\u7F6E\u201Ctext/plain\u201D
+          content-type: application/json
+          #\u8BBE\u7F6E\u8981\u7ED1\u5B9A\u7684\u6D88\u606F\u670D\u52A1\u7684\u5177\u4F53\u8BBE\u7F6E
+          binder: defaultRabbit
+    consul:
+      host: 192.168.103.253
+      port: 8500
+      discovery:
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${127.0.0.1}-${server.port}
+        heartbeat:
+          enabled: true

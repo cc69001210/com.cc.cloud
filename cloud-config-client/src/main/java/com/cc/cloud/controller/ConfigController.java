@@ -22,7 +22,7 @@ public class ConfigController {
     private String configVersion;
 
 
-    @RequestMapping(value = "/configDev",method = RequestMethod.GET)
+    @RequestMapping(value = "/configDev", method = RequestMethod.GET)
     public String getConfig() {
         return configVersion;
     }

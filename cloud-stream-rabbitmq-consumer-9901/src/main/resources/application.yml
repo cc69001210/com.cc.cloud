@@ -1,0 +1,39 @@
+server:
+  port: 9901
+
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      # 定义绑定器
+      binders:
+        # 下面使用的 defaultRabbit 就是使用的这个下面的配置
+        defaultRabbit:
+          # 消息组件类型
+          type: rabbit
+          # 消息组件环境
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.103.253
+                port: 5672
+                username: guest
+                password: guest
+      bindings: # 服务的综合处理
+        input: # 这个名字是一个通道的名称，因为这里是消息接收，所以配置的就是input
+          # 表示要使用的Exchange的名称（交换机的名称）
+          destination: streamExchange
+          #设置消息类型，本次为json，文本则设置“text/plain”
+          content-type: application/json
+          #设置要绑定的消息服务的具体设置
+          binder: defaultRabbit
+    consul:
+      host: 192.168.103.253
+      port: 8500
+      discovery:
+        health-check-interval: 10s
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${127.0.0.1}-${server.port}
+        heartbeat:
+          enabled: true
